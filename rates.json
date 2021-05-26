@@ -1,7 +1,7 @@
 {
-    "last_updated": "2016-01-01T22:34Z",
-    "disclaimer": "This data is compiled from official European Commission sources to be as accurate as possible, however no guarantee of accuracy is provided. Use at your own risk. Don't trust random people on the internet without doing your own research.",
-    
+    "last_updated": "2021-05-27T01:20Z",
+    "disclaimer": "This data is compiled from official European Commission and other sources to be as accurate as possible, however no guarantee of accuracy is provided. Use at your own risk. Don't trust random people on the internet without doing your own research.",
+
     "rates": {
         "AT": {
             "country": "Austria",
@@ -89,7 +89,7 @@
             "country": "Greece",
             "vat_name": "Foros prostithemenis axias",
             "vat_abbr": "FPA",
-            "standard_rate": 23.00,
+            "standard_rate": 24.00,
             "reduced_rate": 13.00,
             "reduced_rate_alt": 6.00,
             "super_reduced_rate": false,
@@ -101,7 +101,7 @@
             "country": "Greece",
             "vat_name": "Foros prostithemenis axias",
             "vat_abbr": "FPA",
-            "standard_rate": 23.00,
+            "standard_rate": 24.00,
             "reduced_rate": 13.00,
             "reduced_rate_alt": 6.00,
             "super_reduced_rate": false,
@@ -222,7 +222,7 @@
             "vat_name": "Omzetbelasting",
             "vat_abbr": "OB",
             "standard_rate": 21.00,
-            "reduced_rate": 6.00,
+            "reduced_rate": 9.00,
             "reduced_rate_alt": false,
             "super_reduced_rate": false,
             "parking_rate": false
@@ -251,7 +251,7 @@
             "country": "Romania",
             "vat_name": "Taxa pe valoarea adãugata",
             "vat_abbr": "TVA",
-            "standard_rate": 20.00,
+            "standard_rate": 19.00,
             "reduced_rate": 9.00,
             "reduced_rate_alt": 5.00,
             "super_reduced_rate": false,
@@ -263,7 +263,7 @@
             "vat_abbr": "DDV",
             "standard_rate": 22.00,
             "reduced_rate": 9.50,
-            "reduced_rate_alt": false,
+            "reduced_rate_alt": 5.00,
             "super_reduced_rate": false,
             "parking_rate": false
         },
