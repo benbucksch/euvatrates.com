@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>EU VAT Rates Web Service</title>
+    <title>EU VAT Rates JSON</title>
 
-    <meta name="description" content="Simple Web Service to load the VAT Rates for all countries in the European Union from official sources.">
-    <meta name="author" content="Mark Hamstra">
+    <meta name="description" content="Simple JSON file to load the VAT Rates for all countries in the European Union from official sources.">
+    <meta name="author" content="Ben Bucksch and Mark Hamstra">
 
-    <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
     <style type="text/css">
         html, body {
             font-size: 16px;
@@ -15,22 +14,12 @@
             padding: 0;
             width: 100%;
             min-height: 100%;
-
-            background: #1f4a7f -webkit-gradient(linear,left top,left bottom,color-stop(0,#2d5586),color-stop(1,#1d4475));
-            background: #1f4a7f -webkit-linear-gradient(top,#2d5586 0,#1d4475 100%);
-            background: #1f4a7f -moz-linear-gradient(top,#2d5586 0,#1d4475 100%);
-            background: #1f4a7f -o-linear-gradient(top,#2d5586 0,#1d4475 100%);
-            background: #1f4a7f -ms-linear-gradient(top,#2d5586 0,#1d4475 100%);
             background: #1f4a7f linear-gradient(top,#2d5586 0,#1d4475 100%);
-
-            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#2d5586, endColorstr=#1d4475)";
         }
 
         .main {
             max-width: 40em;
             margin: 0 auto;
-            -webkit-box-shadow: 0 10px 10px 5px rgba(50, 50, 50, 0.75);
-            -moz-box-shadow:    0 10px 10px 5px rgba(50, 50, 50, 0.75);
             box-shadow:         0 10px 10px 5px rgba(50, 50, 50, 0.75);
 
             padding: 2em;
@@ -70,17 +59,10 @@
 
         a {
             color: #1f4a7f;
+            text-decoration: none;
         }
         a:hover {
             color: #1d4475;
-        }
-
-        #mc_embed_signup{
-            background:#fff;
-            clear:left;
-        }
-        #mc_embed_signup form {
-            padding: 0;
         }
         code {
             font-family: "Courier New", Courier, monospace;
@@ -92,94 +74,27 @@
 <body>
 
 <section class="main">
-    <h1>Welcome to the EU VAT Rates Web Service</h1>
+    <h1>Welcome to the EU VAT Rates JSON data</h1>
 
-    <p>This static web service provides a simple to consume JSON document, containing a list of VAT rates per country in the European Union. It can be used to automatically grab the right VAT right to comply with the 2015 EU VAT Changes. As it's a free service, use is at your own risk. This project is licensed under the MIT License.</p>
-
-    <p><a href="https://github.com/modmore/euvatrates.com" target="_blank">You can contribute to this service on Github!</a> Please <a href="#subscribe">subscribe to the newsletter</a> to receive important information about the service (such as VAT or format changes). </p>
+    <p>This static JSON file provides a simple to consume JSON document, containing a list of VAT rates per country in the European Union.</p>
 
     <h2>How it works</h2>
 
-    <p>Simply load <code>https://euvatrates.com/rates.json</code> (<a href="rates.json" target="_blank">Click!</a>) and use the data to apply the proper VAT rates in your cart or checkout system. </p>
+    <p>Considering these VAT rates rarely change, <b>cache the data on your system</b>, so <a href="https://github.com/benbucksch/eu-vat-rates">clone the repository</a> or install it into your project with <a href="https://www.npmjs.com/package/eu-vat-rates">npm</a> or yarn: <code>npm install euvatrates.com</code></p>
 
-    <p>Considering these VAT rates rarely change, <b>cache the data on your system</b>. If you repeatedly hit the server and steal up the bandwidth, you risk getting blocked from accessing this free service. Alternatively, if you'd like to self-host the rates.json file, it's possible to <a href="https://github.com/modmore/euvatrates.com">clone the repository</a> or to install it into your project with <a href="http://bower.io">Bower</a>: <code>bower install euvatrates.com</code></p>
+    <p>Simply load <code>rates.json</code> as JSON. The data structure is pretty self explanatory JSON. There's a <code>last_updated</code> ISO 8601 timestamp in the root that tells you when the last VAT change (or bug fix) was made, and there is a disclaimer. The <code>rates</code> object contains all the different rates per country, based on its 2 character country code. </p>
 
-    <p>The data structure is pretty self explanatory JSON. There's a <code>last_updated</code> ISO 8601 timestamp in the root that tells you when the last VAT change (or bug fix) was made, and there is a disclaimer. The <code>rates</code> object contains all the different rates per country, based on its 2 character country code. </p>
+    <p>The rate object contains the country name, the local name of the tax in the local language, its abbreviation, and a couple of different tax rates that exist in the country. The values are always numeric (with decimals), or a boolean <code>false</code> if the rate is not used in the country.</p>
 
-    <p>The rate object contains the country name, and a couple of different tax rates that exist in the country. The currently returned rate types are <code>standard_rate</code>, <code>reduced_rate</code>, <code>reduced_rate_alt</code>, <code>super_reduced_rate</code> and <code>parking_rate</code>. The values are always numeric (with decimals), or a boolean <code>false</code> if the rate is not used in the country.</p>
+    <p>The currently returned rate types are <code>standard_rate</code>, <code>reduced_rate</code>, <code>reduced_rate_alt</code>, <code>super_reduced_rate</code> and <code>parking_rate</code>. Which VAT rate you need to use, depends on the type of product or service you are providing and to whom you are providing it. It is best to consult someone knowledgeable on that, like your accountant. <a href="http://ec.europa.eu/taxation_customs/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf" target="_blank">This official EU Document also contains a table indicating what rates to apply.</a> Exceptions or exemptions may apply per country.</p>
 
-    <p>Which VAT rate you need to use, depends on the type of product or service you are providing and to whom you are providing it. It is best to consult someone knowledgeable, like your accountant on that. <a href="http://ec.europa.eu/taxation_customs/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf" target="_blank">This official EU Document also contains a table indicating what rates to apply.</a> Exceptions or exemptions may apply per country.</p>
+    <h2>License and Disclaimer</h2>
 
-    <p>For convenience, the United Kingdom and Greece are included both by their EU country code (UK and EL), as well as their ISO country code (GB and GR). The ISO duplicates contain a <code>iso_duplicate_of</code> element referring to the EU country code, and the originals contain a <code>iso_duplicate</code> element that contains the ISO Country code.</p>
-
-    <section class="divide">
-        <section>
-            <h2 id="subscribe">Subscribe to Updates</h2>
-            <p>Receive an email with important news, such as VAT rate changes and changes to the format or available features. </p>
-            <!-- Begin MailChimp Signup Form -->
-            <div id="mc_embed_signup">
-            <form action="//markhamstra.us2.list-manage.com/subscribe/post?u=f70125e94ef1181a22558acd5&amp;id=afa32423f6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll">
-
-            <div class="mc-field-group">
-                <label for="mce-EMAIL">Email Address </label>
-                <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-            </div>
-            <div class="mc-field-group">
-                <label for="mce-FNAME">First Name </label>
-                <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
-            </div>
-            <div class="mc-field-group">
-                <label for="mce-LNAME">Last Name </label>
-                <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
-            </div>
-                <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response" style="display:none"></div>
-                    <div class="response" id="mce-success-response" style="display:none"></div>
-                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                <div style="position: absolute; left: -5000px;"><input type="text" name="b_f70125e94ef1181a22558acd5_afa32423f6" tabindex="-1" value=""></div>
-                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                </div>
-            </form>
-            </div>
-        </section>
-
-        <aside>
-            <h2>Contact</h2>
-            <p>Find me on Twitter <a href="https://twitter.com/mark_hamstra">@mark_hamstra</a> or email hello [youknowhatgoeshere] markhamstra.com</p>
-            <!--End mc_embed_signup-->
-
-
-            <h2>Data Sources</h2>
-
-            <ul>
-                <li><a href="http://ec.europa.eu/taxation_customs/resources/documents/taxation/vat/how_vat_works/rates/vat_rates_en.pdf" target="_blank">VAT Rates Applied in the Member States of the European Union</a> (PDF, retrieved October 20th, 2014)</li>
-                <li><a href="http://www.vatlive.com/vat-rates/european-vat-rates/eu-vat-rates/">Avalara VATlive</a></li>
-            </ul>
-
-            <h2>Make a Donation</h2>
-
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="RXUGWVFHHUHNS">
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                <img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">
-            </form>
-        </aside>
-    </section>
-
-    <h2>Recent Changes</h2>
-    <ul>
-        <li>[2016-01-01] Updated Romanian VAT rate, and re-ordered countries in the list to be alphabetical-ish (<a href="https://github.com/modmore/euvatrates.com/pull/5">#5</a>)</li>
-        <li>[2015-09-21] Updated VAT rate for Greece (<a href="https://github.com/modmore/euvatrates.com/pull/4">#4</a>)</li>
-        <li>[2015-01-02] Update Luxembourg VAT rates (<a href="https://github.com/modmore/euvatrates.com/pull/3">#3</a>, <a href="http://www.vatlive.com/european-news/luxembourg-vat-rise-17-2015/">source</a>)</li>
-        <li>[2014-12-30] <code>last_updated</code> timestamp is now formatted according to ISO 8601</li>
-        <li>[2014-12-30] Include <code>GB</code> and <code>GR</code> rates elements as duplicates of the <code>UK</code> and <code>EL</code> elements to deal with how differences in how the EU and ISO hav determined country codes. The duplicates (the ISO representation: GB and GR) contain a new <code>iso_duplicate_of</code> element referring to the EU-style country code. The originals (the EU representation: UK and EL) contain a new <code>iso_duplicate</code> element, referring to the ISO-style country code.</li>
-        <li>[2014-12-30] Remove "The" from "The Netherlands" again (#1)</li>
-        <li>[2014-11-07] Fix typo in Finland, add "The" to "The Netherlands"</li>
-    </ul>
+    <p>As it's a free service, use is at your own risk.</p>
+    <p>This project is licensed under the MIT License.</p>
 
 </section>
 
 </body>
 </html>
+

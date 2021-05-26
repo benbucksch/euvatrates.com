@@ -1,8 +1,8 @@
 {
-  "name": "euvatrates.com",
+  "name": "eu-vat-rates",
   "version": "1.0.0",
-  "homepage": "https://euvatrates.com",
   "authors": [
+    "Ben Bucksch",
     "Mark Hamstra <hello@markhamstra.com>"
   ],
   "description": "Contains a JSON file with the various VAT rates across the European Union to comply with the 2015 EU VAT rules.",
@@ -12,12 +12,12 @@
     "vat",
     "ecommerce"
   ],
-  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "license": "MIT"
 }

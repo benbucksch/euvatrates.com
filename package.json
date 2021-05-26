@@ -1,0 +1,24 @@
+{
+  "name": "eu-vat-rates",
+  "version": "1.0.0",
+  "description": "VAT sales tax rates per EU country",
+  "main": "rates.json",
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benbucksch/eu-vat-rates"
+  },
+  "keywords": [
+    "VAT",
+    "VAT rates",
+    "Tax",
+    "Sales tax",
+    "EU"
+  ],
+  "author": "Ben Bucksch and Mark Hamstra",
+  "bugs": {
+    "url": "github.com/benbucksch/eu-vat-rates/issues"
+  },
+  "license": "MIT"
+}
