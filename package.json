@@ -1,6 +1,6 @@
 {
   "name": "eu-vat-rates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "VAT sales tax rates per EU country",
   "main": "rates.json",
   "dependencies": {},
