@@ -83,21 +83,7 @@
             "super_reduced_rate": false,
             "parking_rate": false
         },
-        "EL": {
-            "_comment": "While the EU uses the country code 'EL' for Greece, ISO uses 'GR' - both are included for convenience.",
-            "iso_duplicate": "GR",
-            "country": "Greece",
-            "vat_name": "Foros prostithemenis axias",
-            "vat_abbr": "FPA",
-            "standard_rate": 24.00,
-            "reduced_rate": 13.00,
-            "reduced_rate_alt": 6.00,
-            "super_reduced_rate": false,
-            "parking_rate": false
-        },
         "GR": {
-            "_comment": "Duplicate of EL for convenience; the EU uses the country code 'EL' for Greece, while ISO uses 'GR'.",
-            "iso_duplicate_of": "EL",
             "country": "Greece",
             "vat_name": "Foros prostithemenis axias",
             "vat_abbr": "FPA",
@@ -287,21 +273,7 @@
             "super_reduced_rate": false,
             "parking_rate": false
         },
-        "UK": {
-            "_comment": "While the EU uses the country code 'UK' for the United Kingdom, ISO uses 'GB' - both are included for convenience.",
-            "iso_duplicate": "GB",
-            "country": "United Kingdom",
-            "vat_name": "Value added tax",
-            "vat_abbr": "VAT",
-            "standard_rate": 20.00,
-            "reduced_rate": 5.00,
-            "reduced_rate_alt": false,
-            "super_reduced_rate": false,
-            "parking_rate": false
-        },
-        "GB": {
-            "_comment": "Duplicate of GB for convenience; the EU uses the country code 'UK' for the United Kingdom, while ISO uses 'GB'.",
-            "iso_duplicate_of": "UK",
+       "GB": {
             "country": "United Kingdom",
             "vat_name": "Value added tax",
             "vat_abbr": "VAT",
