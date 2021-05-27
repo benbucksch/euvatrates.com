@@ -272,16 +272,6 @@
             "reduced_rate_alt": 6.00,
             "super_reduced_rate": false,
             "parking_rate": false
-        },
-       "GB": {
-            "country": "United Kingdom",
-            "vat_name": "Value added tax",
-            "vat_abbr": "VAT",
-            "standard_rate": 20.00,
-            "reduced_rate": 5.00,
-            "reduced_rate_alt": false,
-            "super_reduced_rate": false,
-            "parking_rate": false
         }
     }
 }
