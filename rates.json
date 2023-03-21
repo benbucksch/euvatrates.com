@@ -167,9 +167,9 @@
             "country": "Luxembourg",
             "vat_name": "Taxe sur la valeur ajoutée",
             "vat_abbr": "TVA",
-            "standard_rate": 17.00,
-            "reduced_rate": 14.00,
-            "reduced_rate_alt": 8.00,
+            "standard_rate": 16.00,
+            "reduced_rate": 13.00,
+            "reduced_rate_alt": 7.00,
             "super_reduced_rate": 3.00,
             "parking_rate": 12.00
         },
