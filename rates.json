@@ -107,7 +107,7 @@
             "country": "Finland",
             "vat_name": "Arvonlisävero",
             "vat_abbr": "ALV",
-            "standard_rate": 24.00,
+            "standard_rate": 25.50,
             "reduced_rate": 14.00,
             "reduced_rate_alt": 10.00,
             "super_reduced_rate": false,
